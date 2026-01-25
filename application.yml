@@ -1,4 +1,17 @@
 spring:
+  datasource:
+    url: jdbc:h2:mem:midas;DB_CLOSE_DELAY=-1
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
   kafka:
     consumer:
       auto-offset-reset: earliest
@@ -13,19 +26,3 @@ spring:
 
 general:
   kafka-topic: trader-updates
-
-spring:
-  datasource:
-    url: jdbc:h2:mem:midas;DB_CLOSE_DELAY=-1
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: password
-  jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
-    hibernate:
-      ddl-auto: update
-  h2:
-    console:
-      enabled: true
-      path: /h2-console
-    
